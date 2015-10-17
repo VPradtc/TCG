@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TCG.Core.Cards
 {
-    class SpellCard
+    public interface ITargetAbility : IPlayable
     {
+        void Cast(IAttackTarget target);
     }
 }

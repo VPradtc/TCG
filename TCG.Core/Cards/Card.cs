@@ -1,33 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TCG.Core.Cards
+﻿namespace TCG.Core.Cards
 {
-    public abstract class Card
+    public abstract class Card : IPlayable
     {
         private readonly string _name;
         private readonly string _description;
         private readonly CardRarity _rarity;
-        private readonly int _cost;
+        private readonly int _manacost;
 
         public string Name { get { return _name; } }
         public string Description { get { return _description; } }
         public CardRarity Rarity { get { return _rarity; } }
+        public int Manacost { get { return _manacost; } }
 
-        public int Cost
+        protected Card(string name, string description, int manacost)
+            :this(name, description, CardRarity.Common, manacost)
         {
-            get { return _cost; }
         }
 
-        protected Card(string name, string description, CardRarity rarity, int cost)
+        protected Card(string name, string description, CardRarity rarity, int manacost)
         {
             _name = name;
             _description = description;
             _rarity = rarity;
-            _cost = cost;
+            _manacost = manacost;
         }
     }
 }
