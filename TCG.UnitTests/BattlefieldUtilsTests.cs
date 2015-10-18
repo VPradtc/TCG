@@ -18,32 +18,11 @@ namespace TCG.UnitTests
             CreatureType dragonType;
             Enum.TryParse("Dragon", false, out dragonType);
 
-            var human = new CreatureCard(
-                name: "Human knight",
-                description: "",
-                rarity: CardRarity.Common,
-                cost: 4,
-                attack: 4,
-                health: 5,
-                type: CreatureType.Humanoid);
+            var human = CardContainer.GetCard(CardName.HumanKnight) as CreatureCard;
 
-            var undeadHuman = new CreatureCard(
-                name: "Undead knight",
-                description: "",
-                rarity: CardRarity.Common,
-                cost: 4,
-                attack: 4,
-                health: 5,
-                type: CreatureType.Humanoid | CreatureType.Undead);
+            var undeadHuman = CardContainer.GetCard(CardName.UndeadKnight) as CreatureCard;
 
-            var undead = new CreatureCard(
-                name: "Ghoul",
-                description: "",
-                rarity: CardRarity.Common,
-                cost: 3,
-                attack: 3,
-                health: 3,
-                type: CreatureType.Undead);
+            var undead = CardContainer.GetCard(CardName.Ghoul) as CreatureCard;
 
             var player1Creatures = new List<SummonedCreature>
             {

@@ -40,7 +40,7 @@ namespace TCG.Core.Game
         public void TakeDamage(int damage)
         {
             Health -= damage;
-            if (Deceased != null) { Deceased.Invoke(this, new EventArgs()); }
+            if (Health >= 0 && Deceased != null) { Deceased.Invoke(this, new EventArgs()); }
         }
 
         public event EventHandler Deceased;

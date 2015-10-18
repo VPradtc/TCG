@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards\Card.cs" />
+    <Compile Include="Cards\CardContainer.cs" />
+    <Compile Include="Cards\CardName.cs" />
     <Compile Include="Cards\CardRarity.cs" />
     <Compile Include="Cards\CreatureCard.cs" />
     <Compile Include="Cards\CreatureType.cs" />
