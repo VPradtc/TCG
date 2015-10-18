@@ -43,11 +43,15 @@
     <Compile Include="Cards\CardRarity.cs" />
     <Compile Include="Cards\CreatureCard.cs" />
     <Compile Include="Cards\CreatureType.cs" />
-    <Compile Include="Cards\IAttackTarget.cs" />
+    <Compile Include="Game\IAttackTarget.cs" />
     <Compile Include="Cards\IPlayable.cs" />
     <Compile Include="Cards\ITargetAbility.cs" />
     <Compile Include="Cards\TargetSpellCard.cs" />
     <Compile Include="Decks\Deck.cs" />
+    <Compile Include="Game\Battlefield.cs" />
+    <Compile Include="Game\Player.cs" />
+    <Compile Include="Game\SummonedCreature.cs" />
+    <Compile Include="Game\Utils\BattlefieldUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

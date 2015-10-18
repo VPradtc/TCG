@@ -1,4 +1,4 @@
-﻿namespace TCG.Core.Cards
+﻿namespace TCG.Core.Game
 {
     public interface IAttackTarget
     {
