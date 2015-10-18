@@ -6,7 +6,7 @@ using TCG.Core.Cards;
 
 namespace TCG.Core.Game
 {
-    public class Player : IAttackTarget
+    public struct Player : IAttackTarget
     {
         private readonly ICollection<Card> _cards;
         private readonly ICollection<SummonedCreature> _summonedCreatures;
@@ -29,7 +29,7 @@ namespace TCG.Core.Game
             get { return _summonedCreatures; }
         }
 
-        public Player(string name, int health, ICollection<Card> cards, ICollection<SummonedCreature> summonedCreatures)
+        public Player(string name, int health, ICollection<Card> cards, ICollection<SummonedCreature> summonedCreatures) : this()
         {
             _cards = cards;
             _summonedCreatures = summonedCreatures;

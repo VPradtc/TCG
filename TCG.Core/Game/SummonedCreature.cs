@@ -3,13 +3,13 @@ using TCG.Core.Cards;
 
 namespace TCG.Core.Game
 {
-    public class SummonedCreature : IAttackTarget
+    public struct SummonedCreature : IAttackTarget
     {
         public CreatureCard Card { get; private set; }
         public int CurrentHealth { get; private set; }
         public int CurrentAttack { get; private set; }
 
-        public SummonedCreature(CreatureCard card)
+        public SummonedCreature(CreatureCard card) : this()
         {
             Card = card;
             CurrentHealth = card.InitialHealth;

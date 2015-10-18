@@ -7,15 +7,16 @@ using TCG.Core.Cards;
 
 namespace TCG.Core.Decks
 {
-    public class Deck
+    public struct Deck
     {
         private readonly ICollection<Card> _cards;
 
         public int MaxSize { get; set; }
 
-        public Deck()
+        public Deck( ICollection<Card> cards) : this()
         {
-            _cards = new List<Card>();
+            _cards = cards;
+            MaxSize = 30;
         }
 
         public ICollection<Card> GetCardsList()
