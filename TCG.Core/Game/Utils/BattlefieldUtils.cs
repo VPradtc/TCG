@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TCG.Core.Cards;
 
 namespace TCG.Core.Game.Utils
 {
     public static class BattlefieldUtils
     {
-        public static ICollection<SummonedCreature> GetAllCreatures(
+        public static ICollection<SummonedCreature> GetCreatures(
             this Battlefield battlefield)
         {
             return battlefield
@@ -28,19 +26,22 @@ namespace TCG.Core.Game.Utils
         {
             if (condition == null)
             {
-                return battlefield.GetAllCreatures();
+                return battlefield.GetCreatures();
             }
             return battlefield
-                .GetAllCreatures()
+                .GetCreatures()
                 .Where(x => condition(x))
                 .ToList();
         }
 
-        public static ICollection<SummonedCreature> GetCreaturesByType(
+        public static ICollection<SummonedCreature> GetCreatures(
             this Battlefield battlefield,
-            CreatureType creatureType)
+            params CreatureType[] creatureTypes)
         {
-            return battlefield.GetCreatures(x => x.Card.Type == creatureType);
+            return battlefield.GetCreatures(
+                x => 
+                creatureTypes.Any
+                    (creatureType => x.Card.Type.HasFlag(creatureType)));
         }
     }
 }

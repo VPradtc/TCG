@@ -1,23 +1,19 @@
-﻿using TCG.Core.Cards;
+﻿using System;
+using TCG.Core.Cards;
 
 namespace TCG.Core.Game
 {
     public class SummonedCreature : IAttackTarget
     {
-        private readonly Battlefield _battlefield;
-
         public CreatureCard Card { get; private set; }
         public int CurrentHealth { get; private set; }
         public int CurrentAttack { get; private set; }
-        public Player Owner { get; private set; }
 
-        public SummonedCreature(CreatureCard card, Battlefield battlefield, Player owner)
+        public SummonedCreature(CreatureCard card)
         {
             Card = card;
-            _battlefield = battlefield;
             CurrentHealth = card.InitialHealth;
             CurrentAttack = card.InitialAttack;
-            Owner = owner;
         }
 
         public void TakeDamage(int damage)
@@ -25,13 +21,10 @@ namespace TCG.Core.Game
             CurrentHealth -= damage;
             if (CurrentHealth <= 0)
             {
-                Decease();
+                if (Deceased != null) Deceased.Invoke(this, new EventArgs());
             }
         }
 
-        public void Decease()
-        {
-            throw new System.NotImplementedException();
-        }
+        public event EventHandler Deceased;
     }
 }

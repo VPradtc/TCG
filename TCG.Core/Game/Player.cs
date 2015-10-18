@@ -6,13 +6,18 @@ using TCG.Core.Cards;
 
 namespace TCG.Core.Game
 {
-    public class Player
+    public class Player : IAttackTarget
     {
         private readonly ICollection<Card> _cards;
         private readonly ICollection<SummonedCreature> _summonedCreatures;
+        private readonly string _name;
 
-        public string Name { get; set; }
-        public int Health { get; set; }
+        public string Name
+        {
+            get { return _name; }
+        }
+
+        public int Health { get; private set; }
 
         public ICollection<Card> Cards
         {
@@ -24,10 +29,20 @@ namespace TCG.Core.Game
             get { return _summonedCreatures; }
         }
 
-        public Player(ICollection<Card> cards, ICollection<SummonedCreature> summonedCreatures)
+        public Player(string name, int health, ICollection<Card> cards, ICollection<SummonedCreature> summonedCreatures)
         {
             _cards = cards;
             _summonedCreatures = summonedCreatures;
+            _name = name;
+            Health = health;
         }
+
+        public void TakeDamage(int damage)
+        {
+            Health -= damage;
+            if (Deceased != null) { Deceased.Invoke(this, new EventArgs()); }
+        }
+
+        public event EventHandler Deceased;
     }
 }
