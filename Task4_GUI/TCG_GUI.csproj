@@ -72,7 +72,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\CardControl.xaml.cs">
+      <DependentUpon>CardControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\CarCollectionViewModel.cs" />
+    <Page Include="Controls\CardControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -126,6 +133,10 @@
     <ProjectReference Include="..\Task4_Models\Task4_Models.csproj">
       <Project>{88fd73c2-e6b5-47a7-ae76-8b3136718875}</Project>
       <Name>Task4_Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TCG.Core\TCG.Core.csproj">
+      <Project>{1111d57f-e1d6-417a-b825-69ec53366829}</Project>
+      <Name>TCG.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

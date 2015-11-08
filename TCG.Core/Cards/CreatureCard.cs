@@ -8,6 +8,12 @@ namespace TCG.Core.Cards
         public int InitialHealth { get; set; }
         public CreatureType Type { get; set; }
 
+        public CreatureCard()
+            : this(String.Empty, String.Empty, CardRarity.Common, 0, 0, 0, CreatureType.None)
+        {
+
+        }
+
         public CreatureCard(string name, string description, CardRarity rarity, int cost, int attack, int health, CreatureType type)
             : base(name, description, rarity, cost)
         {
@@ -30,12 +36,12 @@ namespace TCG.Core.Cards
 
         public override int GetHashCode()
         {
-            return InitialAttack.GetHashCode() + InitialHealth.GetHashCode()*128 + base.GetHashCode();
+            return InitialAttack.GetHashCode() + InitialHealth.GetHashCode() * 128 + base.GetHashCode();
         }
 
         public override string ToString()
         {
-            return base.ToString() 
+            return base.ToString()
                 + String.Format("InitialAttack: {0};\r\n InitialLife: {1};\r\n", InitialAttack, InitialHealth);
         }
     }

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Task4_DbAccess;
 using Task4_DbAccess.UnitOfWork;
 using Task4_Models;
+using TCG.Core.Cards;
 using Xceed.Wpf.Toolkit;
 
 namespace Task4_GUI
@@ -27,6 +28,7 @@ namespace Task4_GUI
         public MainWindow()
         {
             InitializeComponent();
+            this.card1.Card = new CreatureCard();
         }
     }
 }
