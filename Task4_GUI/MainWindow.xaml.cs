@@ -1,22 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Task4_DbAccess;
-using Task4_DbAccess.UnitOfWork;
-using Task4_Models;
-using TCG.Core.Cards;
-using Xceed.Wpf.Toolkit;
+﻿using System.Windows;
 
 namespace Task4_GUI
 {
@@ -28,7 +10,6 @@ namespace Task4_GUI
         public MainWindow()
         {
             InitializeComponent();
-            this.card1.Card = new CreatureCard();
         }
     }
 }
